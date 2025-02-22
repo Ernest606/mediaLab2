@@ -1,3 +1,5 @@
+import { PLYLoader } from 'https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/PLYLoader.js';
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -84,7 +86,7 @@
 				return;
 			}
 
-			const loader = new THREE.PLYLoader();
+			const loader = new PLYLoader();
 			
 			const _this = this;
 			loader.load(this.data.src, function (geometry) {
@@ -454,25 +456,25 @@
 
 				}
 
-				geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( buffer.vertices, 3 ) );
+				geometry.setAttribute('position', new THREE.Float32BufferAttribute(buffer.vertices, 3));
 
 				// optional buffer data
 
 				if ( buffer.normals.length > 0 ) {
 
-					geometry.addAttribute( 'normal', new THREE.Float32BufferAttribute( buffer.normals, 3 ) );
+					geometry.setAttribute('normal', new THREE.Float32BufferAttribute(buffer.normals, 3));
 
 				}
 
 				if ( buffer.uvs.length > 0 ) {
 
-					geometry.addAttribute( 'uv', new THREE.Float32BufferAttribute( buffer.uvs, 2 ) );
+					geometry.setAttribute('uv', new THREE.Float32BufferAttribute(buffer.uvs, 2));
 
 				}
 
 				if ( buffer.colors.length > 0 ) {
 
-					geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( buffer.colors, 3 ) );
+					geometry.setAttribute('color', new THREE.Float32BufferAttribute(buffer.colors, 3));
 
 				}
 
