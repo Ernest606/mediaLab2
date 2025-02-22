@@ -1,5 +1,3 @@
-import { PLYLoader } from 'https://cdn.jsdelivr.net/npm/three/examples/jsm/loaders/PLYLoader.js';
-
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -45,7 +43,7 @@ import { PLYLoader } from 'https://cdn.jsdelivr.net/npm/three/examples/jsm/loade
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
-
+	
 	__webpack_require__(1);
 
 	if (typeof AFRAME === 'undefined') {
