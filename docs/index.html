@@ -6,14 +6,23 @@
     <meta name="description" content="VR Application using A-Frame.">
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.1/dist/aframe-particle-system-component.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/PLYLoader.js"></script>
+    <script>
+        let PLYLoader;
+        fetch("https://cdn.jsdelivr.net/npm/three/examples/js/loaders/PLYLoader.js")
+            .then(response => response.text())
+            .then(scriptText => {
+                eval(scriptText); 
+                PLYLoader = THREE.PLYLoader; 
+            });
+    </script>
     <script src="https://rdub80.github.io/aframe-gui/examples/all_components.js"></script>
     <script>
         AFRAME.registerComponent('ply-model', {
             schema: { type: 'string' },
             init: function () {
-                let loader = new PLYLoader();
                 let el = this.el;
+                let loader = new PLYLoader();  // ✅ Now `PLYLoader` is available!
+
                 loader.load(this.data, function (geometry) {
                     let material = new THREE.MeshStandardMaterial({ color: 0x5555ff, flatShading: true });
                     let mesh = new THREE.Mesh(geometry, material);
@@ -21,7 +30,6 @@
                 });
             }
         });
-
         
         AFRAME.registerComponent('rotate-model', {
             init: function () {
