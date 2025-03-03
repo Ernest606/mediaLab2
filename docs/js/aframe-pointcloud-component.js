@@ -43,7 +43,7 @@
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
-	
+
 	__webpack_require__(1);
 
 	if (typeof AFRAME === 'undefined') {
@@ -84,7 +84,7 @@
 				return;
 			}
 
-			const loader = new PLYLoader();
+			const loader = new THREE.PLYLoader();
 			
 			const _this = this;
 			loader.load(this.data.src, function (geometry) {
@@ -454,25 +454,25 @@
 
 				}
 
-				geometry.setAttribute('position', new THREE.Float32BufferAttribute(buffer.vertices, 3));
+				geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( buffer.vertices, 3 ) );
 
 				// optional buffer data
 
 				if ( buffer.normals.length > 0 ) {
 
-					geometry.setAttribute('normal', new THREE.Float32BufferAttribute(buffer.normals, 3));
+					geometry.addAttribute( 'normal', new THREE.Float32BufferAttribute( buffer.normals, 3 ) );
 
 				}
 
 				if ( buffer.uvs.length > 0 ) {
 
-					geometry.setAttribute('uv', new THREE.Float32BufferAttribute(buffer.uvs, 2));
+					geometry.addAttribute( 'uv', new THREE.Float32BufferAttribute( buffer.uvs, 2 ) );
 
 				}
 
 				if ( buffer.colors.length > 0 ) {
 
-					geometry.setAttribute('color', new THREE.Float32BufferAttribute(buffer.colors, 3));
+					geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( buffer.colors, 3 ) );
 
 				}
 
